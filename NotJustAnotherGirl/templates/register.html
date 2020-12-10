@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">
+    </script>
     <title>SignUp Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -19,24 +23,85 @@
     <div class="main-agileinfo">
         <div class="agileits-top">
             <form action="#" method="post">
-                <input class="text" type="text" name="Name" placeholder="Name" required="">
-                <input class="text" type="text" name="age" placeholder="Age" required="">
-                <input class="text email" type="email" name="email" placeholder="Email" required="">
-                <input class="text" type="text" name="phone" placeholder="phone" required="">
+                <input id="name" class="text" type="text" name="Name" placeholder="Name" required="">
+                <input id="age" class="text" type="text" name="age" placeholder="Age" required="">
+                <input id="email" class="text email" type="email" name="email" placeholder="Email" required="">
+                <input id="phone" class="text" type="text" name="phone" placeholder="phone" required="">
                 <br>
                 <p>Gender</p>
-                    <input  type="radio" name="gender" value="male" checked> Male<br>
-                    <input  type="radio" name="gender" value="female"> Female<br>
-                    <input  type="radio" name="gender" value="other"> Other
+                    <input id="gender"  type="radio" name="gender" value="male" checked> Male<br>
+                    <input id="gender1"  type="radio" name="gender" value="female"> Female<br>
+                    <input id="gender2"  type="radio" name="gender" value="other"> Other
 
                 </form>
                 <div class="wthree-text">
+
                     <div class="clear"> </div>
                 </div>
-                <input type="submit" value="SIGNUP">
+                <button class="btn btn-primary" type="submit" value="SIGNUP">SignUp</button>
             </form>
+
+            <p>Already have an Account? <a href="#"> Login Now!</a></p>
+
         </div>
     </div>
+
+    <script>
+        var obj = {};
+        function sendUser(){
+          obj.name = $('#name').val();
+          obj.age = $('#age').val();
+          obj.email = $('#email').val();
+          obj.phone = $('#phone').val();
+          obj.gender = $('input:checked').val();
+        }
+
+   function sendUserAjax(){
+    $.ajax({
+    url: 'http://localhost:8080/hackathon/api/user',
+    type: 'POST',
+    data: JSON.stringify(obj),
+    dataType:'text',
+    mode: "cors" ,
+    async: true,
+    contentType: 'application/json; charset=utf-8',
+    success: successCallback,
+    error: errorCallback
+    });
+   }
+
+    $('button').click(function(){
+        sendUser();
+        sendUserAjax();
+    })
+
+     function successCallback(result){
+        alert("You have successfully signed up!");
+        //alert(result.responseText);
+        console.log(
+        result.getResponseHeader;
+        /*
+        for (let i = 0; i < arguments.length; i++){
+            console.log(arguments[i]);
+        } 
+        */
+        localStorage.id = result[0].id;
+        alert(localStorage.id);
+        //redirect();
+    }
+
+    function errorCallback(result){
+
+        alert("Please check the fields and try again");  
+       
+    }
+
+    function redirect(){
+        window.location.replace('./index.html');
+    }
+    </script>
+
+
     <!-- copyright -->
     <div class="colorlibcopy-agile">
         <p>© 2020 Not Just Another Girl. All rights reserved</p>
