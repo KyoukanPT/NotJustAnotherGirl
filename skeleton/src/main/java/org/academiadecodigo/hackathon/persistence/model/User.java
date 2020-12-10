@@ -4,23 +4,24 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
-@Entity
-@Table(name = "user")
+
 public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer id;
 
-    @CreationTimestamp
     private Date creationTime;
 
-    private String firstName;
+    private String name;
     private Integer age;
     private String email;
     private String phone;
     private String gender;
+
+    private List<Complaint> complaintList = new LinkedList<>();
 
     public Integer getId() {
         return id;
@@ -38,12 +39,12 @@ public class User {
         this.creationTime = creationTime;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getAge() {
@@ -78,4 +79,9 @@ public class User {
         this.gender = gender;
     }
 
+    public Complaint addComplaint(Complaint complaint){
+        complaintList.add((complaint));
+        complaint.setUser(this);
+        return complaint;
+    }
 }
