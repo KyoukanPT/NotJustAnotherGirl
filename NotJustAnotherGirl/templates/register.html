@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">
     </script>
@@ -37,7 +38,7 @@
 
                     <div class="clear"> </div>
                 </div>
-                <button type="submit" value="SIGNUP">SignUp</button>
+                <button class="btn btn-primary" type="submit" value="SIGNUP">SignUp</button>
             </form>
 
             <p>Already have an Account? <a href="#"> Login Now!</a></p>
@@ -60,10 +61,10 @@
     url: 'http://localhost:8080/hackathon/api/user',
     type: 'POST',
     data: JSON.stringify(obj),
-    dataType:'json',
+    dataType:'text',
     mode: "cors" ,
     async: true,
-    contentType: 'application/json',
+    contentType: 'application/json; charset=utf-8',
     success: successCallback,
     error: errorCallback
     });
@@ -75,13 +76,24 @@
     })
 
      function successCallback(result){
-        alert("HEHEHHE");
-        redirect();
+        alert("You have successfully signed up!");
+        //alert(result.responseText);
+        console.log(
+        result.getResponseHeader;
+        /*
+        for (let i = 0; i < arguments.length; i++){
+            console.log(arguments[i]);
+        } 
+        */
+        localStorage.id = result[0].id;
+        alert(localStorage.id);
+        //redirect();
     }
 
     function errorCallback(result){
-        alert("Tou have successfully signed up!");
-        redirect();
+
+        alert("Please check the fields and try again");  
+       
     }
 
     function redirect(){

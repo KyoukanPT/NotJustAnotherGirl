@@ -81,13 +81,13 @@ public class UserRestController {
         User savedUser = userService.save(userDto);
 
         // get help from the framework building the path for the newly created resource
-        UriComponents uriComponents = uriComponentsBuilder.path("/api/customer/" + userDto.getId()).build();
+        UriComponents uriComponents = uriComponentsBuilder.path("/api/customer/" + savedUser.getId()).build();
 
         // set headers with the created path
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(uriComponents.toUri());
 
-        return new ResponseEntity<>(headers, HttpStatus.CREATED);
+        return new ResponseEntity<>(headers,HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.PUT, path = "/{id}")
