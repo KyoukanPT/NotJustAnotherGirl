@@ -9,8 +9,6 @@ public class Complaint {
 
     private Integer id;
 
-    private Date creationTime;
-
     private User user;
 
     private String text;
@@ -29,14 +27,6 @@ public class Complaint {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Date getCreationTime() {
-        return creationTime;
-    }
-
-    public void setCreationTime(Date creationTime) {
-        this.creationTime = creationTime;
     }
 
     public User getUser() {

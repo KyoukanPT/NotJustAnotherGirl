@@ -1,3 +1,4 @@
+/*
 package org.academiadecodigo.hackathon.persistence.dao.jpa;
 
 import org.academiadecodigo.hackathon.persistence.dao.Dao;
@@ -51,3 +52,4 @@ public abstract class GenericDao<T> implements Dao<T> {
         em.remove(em.find(modelType, id));
     }
 }
+*/
