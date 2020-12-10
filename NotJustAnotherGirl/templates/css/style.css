@@ -158,6 +158,9 @@ input[type="text"], input[type="email"], input[type="password"] {
     color: #fff;
     font-family: 'Roboto', sans-serif;
 }
+.id{
+    color:white;
+}
 
 input.email, input.text.w3lpass {
     margin: 2em 0;
@@ -240,6 +243,10 @@ input[type="submit"]:hover {
 
 .agileits-top p a:hover {
     color: #98acf8;
+}
+
+.checkbox {
+    margin-top: 10px;
 }
 
 /*-- //main --*/

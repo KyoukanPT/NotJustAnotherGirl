@@ -26,19 +26,22 @@
                 <input id="age" class="text" type="text" name="age" placeholder="Age" required="">
                 <input id="email" class="text email" type="email" name="email" placeholder="Email" required="">
                 <input id="phone" class="text" type="text" name="phone" placeholder="phone" required="">
-                <input id="gender" class="text" type="text" name="gender" placeholder="gender" required="">
-                <input id = "password" class="text" type="password" name="password" placeholder="Password" required="">
-                <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
+                <br>
+                <p>Gender</p>
+                    <input id="gender"  type="radio" name="gender" value="male" checked> Male<br>
+                    <input id="gender1"  type="radio" name="gender" value="female"> Female<br>
+                    <input id="gender2"  type="radio" name="gender" value="other"> Other
+
+                </form>
                 <div class="wthree-text">
-                    <label class="anim">
-                        <input type="checkbox" class="checkbox" required="true">
-                        <span>I Agree To The Terms & Conditions</span>
-                    </label>
+
                     <div class="clear"> </div>
                 </div>
                 <button type="submit" value="SIGNUP">SignUp</button>
             </form>
+
             <p>Already have an Account? <a href="#"> Login Now!</a></p>
+
         </div>
     </div>
 
@@ -49,7 +52,7 @@
           obj.age = $('#age').val();
           obj.email = $('#email').val();
           obj.phone = $('#phone').val();
-          obj.gender = $('#gender').val();
+          obj.gender = $('input:checked').val();
         }
 
    function sendUserAjax(){
