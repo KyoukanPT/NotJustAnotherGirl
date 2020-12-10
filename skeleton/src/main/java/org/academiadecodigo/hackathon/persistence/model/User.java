@@ -8,13 +8,10 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-@JsonIgnoreProperties
 public class User {
 
 
     private Integer id;
-
-
     private String name;
     private Integer age;
     private String email;
