@@ -1,4 +1,4 @@
-package org.academiadecodigo.hackathon.converters;
+/*package org.academiadecodigo.hackathon.converters;
 
 import org.academiadecodigo.hackathon.command.ComplaintDto;
 import org.academiadecodigo.hackathon.persistence.model.Complaint;
@@ -28,4 +28,4 @@ public class ComplaintDtoToComplaint implements Converter<ComplaintDto, Complain
     public void setComplaintService(ComplaintService complaintService) {
         this.complaintService = complaintService;
     }
-}
+}*/

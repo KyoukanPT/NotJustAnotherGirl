@@ -11,7 +11,11 @@ import java.util.*;
 public class UserService {
 
 
-    private Map<Integer, User> userMap = new HashMap<>();
+    private Map<Integer, User> userMap;
+
+    public UserService(){
+        this.userMap = new HashMap<>();
+    }
 
     protected Integer getNextId() {
         return userMap.isEmpty() ? 1 : Collections.max(userMap.keySet()) + 1;
@@ -37,7 +41,7 @@ public class UserService {
     }
 
     public List<User> list() {
-        return new ArrayList<>(userMap.values());
+        return new LinkedList<>(userMap.values());
     }
 
     public Complaint addComplaint(Integer id, Complaint complaint) {
@@ -45,5 +49,7 @@ public class UserService {
         return user.addComplaint(complaint);
     }
 
-
+    public void setUserMap(Map<Integer, User> userMap) {
+        this.userMap = userMap;
+    }
 }

@@ -1,5 +1,8 @@
 package org.academiadecodigo.hackathon.controller.rest;
 
+import org.academiadecodigo.hackathon.command.UserDto;
+import org.academiadecodigo.hackathon.converters.UserDtoToUser;
+import org.academiadecodigo.hackathon.converters.UserToUserDto;
 import org.academiadecodigo.hackathon.persistence.model.User;
 import org.academiadecodigo.hackathon.service.mock.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,7 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,7 +25,18 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/user")
 public class UserRestController {
     private UserService userService;
+    private UserDtoToUser userDtoToUser;
+    private UserToUserDto userToUserDto;
 
+    @Autowired
+    public void setUserDtoToUser(UserDtoToUser userDtoToUser) {
+        this.userDtoToUser = userDtoToUser;
+    }
+
+    @Autowired
+    public void setUserToUserDto(UserToUserDto userToUserDto) {
+        this.userToUserDto = userToUserDto;
+    }
 
     @Autowired
     public void setUserService(UserService userService) {
@@ -29,19 +44,17 @@ public class UserRestController {
     }
 
     @RequestMapping(method = RequestMethod.GET, path = {"/", ""})
-    public ResponseEntity<List<User>> listUser() {
+    public ResponseEntity<List<UserDto>> listUser() {
 
-        List<User> userDtos = userService.list();
-
-                //.stream()
-        //.map(customer -> customerToCustomerDto.convert(customer))
-          //      .collect(Collectors.toList());
+        List<UserDto> userDtos = userService.list().stream()
+                .map(user -> userToUserDto.convert(user))
+                .collect(Collectors.toList());
 
         return new ResponseEntity<>(userDtos, HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/{id}")
-    public ResponseEntity<User> showUser(@PathVariable Integer id) {
+    public ResponseEntity<UserDto> showUser(@PathVariable Integer id) {
 
         User user = userService.get(id);
 
@@ -49,7 +62,7 @@ public class UserRestController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        return new ResponseEntity<>(user, HttpStatus.OK);
+        return new ResponseEntity<>( userToUserDto.convert(user), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST, path = {"/", ""})

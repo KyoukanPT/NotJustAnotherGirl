@@ -8,7 +8,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserDtoToUser implements Converter<UserDto, User> {
+public class UserDtoToUser extends AbstractConverter<UserDto,User> implements Converter<UserDto, User> {
 
     private UserService userService;
 
@@ -23,6 +23,7 @@ public class UserDtoToUser implements Converter<UserDto, User> {
 
         User user = (userDto.getId() != null ? userService.get(userDto.getId()) : new User());
 
+        user.setId(userDto.getId());
         user.setName(userDto.getName());
         user.setAge(userDto.getAge());
         user.setGender(userDto.getGender());

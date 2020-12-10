@@ -1,9 +1,15 @@
-org/academiadecodigo/hackathon/controller/rest/UserRestController.class
-org/academiadecodigo/hackathon/service/mock/ComplaintService.class
 org/academiadecodigo/hackathon/persistence/model/ComplaintType.class
+org/academiadecodigo/hackathon/converters/UserToUserDto.class
 org/academiadecodigo/hackathon/controller/rest/ComplaintRestController.class
 org/academiadecodigo/hackathon/persistence/dao/Dao.class
 org/academiadecodigo/hackathon/persistence/model/Complaint.class
 org/academiadecodigo/hackathon/persistence/model/User.class
 org/academiadecodigo/hackathon/service/mock/UserService.class
+org/academiadecodigo/hackathon/controller/rest/UserRestController.class
+org/academiadecodigo/hackathon/service/mock/ComplaintService.class
+org/academiadecodigo/hackathon/converters/UserDtoToUser.class
+org/academiadecodigo/hackathon/converters/ComplaintToComplaintDto.class
+org/academiadecodigo/hackathon/converters/AbstractConverter.class
+org/academiadecodigo/hackathon/command/ComplaintDto.class
+org/academiadecodigo/hackathon/command/UserDto.class
 org/academiadecodigo/hackathon/Main.class
