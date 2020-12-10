@@ -1,3 +1,4 @@
+/*
 package org.academiadecodigo.hackathon.persistence.dao.jpa;
 
 import org.academiadecodigo.hackathon.persistence.model.Complaint;
@@ -10,3 +11,4 @@ public class ComplaintDao extends GenericDao<Complaint> {
         super(Complaint.class);
     }
 }
+*/

@@ -1,15 +1,15 @@
 package org.academiadecodigo.hackathon.service.mock;
 
-import org.academiadecodigo.hackathon.persistence.dao.jpa.UserDao;
+
 import org.academiadecodigo.hackathon.persistence.model.Complaint;
 import org.academiadecodigo.hackathon.persistence.model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-
+@Service
 public class UserService {
-    private UserDao userDao;
+
 
     private Map<Integer, User> userMap = new HashMap<>();
 
@@ -18,7 +18,7 @@ public class UserService {
 
     }
 
-        public User get(Integer id) {
+    public User get(Integer id) {
         return userMap.get(id);
     }
 
@@ -32,7 +32,7 @@ public class UserService {
         return user;
     }
 
-    public void delete(Integer id)  {
+    public void delete(Integer id) {
         userMap.remove(id);
     }
 
@@ -40,10 +40,10 @@ public class UserService {
         return new ArrayList<>(userMap.values());
     }
 
-    public Complaint addComplaint(Integer id,Complaint complaint){
+    public Complaint addComplaint(Integer id, Complaint complaint) {
         User user = get(id);
-       return user.addComplaint(complaint);
+        return user.addComplaint(complaint);
     }
 
 
-    }
+}

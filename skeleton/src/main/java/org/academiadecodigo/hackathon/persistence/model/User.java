@@ -1,5 +1,6 @@
 package org.academiadecodigo.hackathon.persistence.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -7,13 +8,12 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-
+@JsonIgnoreProperties
 public class User {
 
 
     private Integer id;
 
-    private Date creationTime;
 
     private String name;
     private Integer age;
@@ -31,13 +31,6 @@ public class User {
         this.id = id;
     }
 
-    public Date getCreationTime() {
-        return creationTime;
-    }
-
-    public void setCreationTime(Date creationTime) {
-        this.creationTime = creationTime;
-    }
 
     public String getName() {
         return name;

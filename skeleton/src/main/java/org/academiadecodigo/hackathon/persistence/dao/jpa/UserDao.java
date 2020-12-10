@@ -1,3 +1,4 @@
+/*
 package org.academiadecodigo.hackathon.persistence.dao.jpa;
 
 
@@ -12,3 +13,4 @@ public class UserDao extends GenericDao<User> {
         super(User.class);
     }
 }
+*/
