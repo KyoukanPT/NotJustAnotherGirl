@@ -12,8 +12,6 @@ public class ComplaintToComplaintDto extends AbstractConverter<Complaint, Compla
 
         ComplaintDto complaintDto = new ComplaintDto();
 
-        complaintDto.setId(complaint.getId());
-        complaintDto.setUser(complaint.getUser());
         complaintDto.setText(complaint.getText());
 
         return complaintDto;

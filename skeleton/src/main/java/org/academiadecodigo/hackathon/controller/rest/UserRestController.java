@@ -1,8 +1,10 @@
 package org.academiadecodigo.hackathon.controller.rest;
 
 import org.academiadecodigo.hackathon.command.UserDto;
+import org.academiadecodigo.hackathon.converters.ComplaintToComplaintDto;
 import org.academiadecodigo.hackathon.converters.UserDtoToUser;
 import org.academiadecodigo.hackathon.converters.UserToUserDto;
+import org.academiadecodigo.hackathon.persistence.model.Complaint;
 import org.academiadecodigo.hackathon.persistence.model.User;
 import org.academiadecodigo.hackathon.service.mock.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,10 @@ public class UserRestController {
     private UserService userService;
     private UserDtoToUser userDtoToUser;
     private UserToUserDto userToUserDto;
+
+    private ComplaintToComplaintDto complaintToComplaintDto;
+
+
 
     @Autowired
     public void setUserDtoToUser(UserDtoToUser userDtoToUser) {
@@ -105,19 +111,29 @@ public class UserRestController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @RequestMapping(method = RequestMethod.GET, path = "/{id}/showComplaints")
+    public ResponseEntity<List<Complaint>> showComplaints(@PathVariable Integer id){
+        List<Complaint> complaintList = userService.get(id).getComplaintList();
+        return new ResponseEntity<>(complaintList,HttpStatus.OK);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, path = "/{id}/addComplaint")
+    public ResponseEntity<Complaint> addComplaint(@Valid@RequestBody Complaint complaint, BindingResult bindingResult, @PathVariable Integer id){
+
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        userService.get(id).addComplaint(complaint);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     @RequestMapping(method = RequestMethod.DELETE, path = "/{id}")
     public ResponseEntity<User> deleteUser(@PathVariable Integer id) {
-
-       // try {
 
             userService.delete(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
-       /* } catch (AssociationExistsException e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-
-        } catch (CustomerNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }*/
     }
 }

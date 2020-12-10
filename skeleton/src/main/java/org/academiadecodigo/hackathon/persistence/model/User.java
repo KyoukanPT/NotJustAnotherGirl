@@ -69,9 +69,12 @@ public class User {
         this.gender = gender;
     }
 
+    public List<Complaint> getComplaintList() {
+        return complaintList;
+    }
+
     public Complaint addComplaint(Complaint complaint){
         complaintList.add((complaint));
-        complaint.setUser(this);
         return complaint;
     }
 }
