@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">
+    </script>
     <title>SignUp Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -19,12 +22,12 @@
     <div class="main-agileinfo">
         <div class="agileits-top">
             <form action="#" method="post">
-                <input class="text" type="text" name="Name" placeholder="Name" required="">
-                <input class="text" type="text" name="age" placeholder="Age" required="">
-                <input class="text email" type="email" name="email" placeholder="Email" required="">
-                <input class="text" type="text" name="phone" placeholder="phone" required="">
-                <input class="text" type="text" name="gender" placeholder="gender" required="">
-                <input class="text" type="password" name="password" placeholder="Password" required="">
+                <input id="name" class="text" type="text" name="Name" placeholder="Name" required="">
+                <input id="age" class="text" type="text" name="age" placeholder="Age" required="">
+                <input id="email" class="text email" type="email" name="email" placeholder="Email" required="">
+                <input id="phone" class="text" type="text" name="phone" placeholder="phone" required="">
+                <input id="gender" class="text" type="text" name="gender" placeholder="gender" required="">
+                <input id = "password" class="text" type="password" name="password" placeholder="Password" required="">
                 <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
                 <div class="wthree-text">
                     <label class="anim">
@@ -33,11 +36,57 @@
                     </label>
                     <div class="clear"> </div>
                 </div>
-                <input type="submit" value="SIGNUP">
+                <button type="submit" value="SIGNUP">SignUp</button>
             </form>
-            <p>Don't have an Account? <a href="#"> Login Now!</a></p>
+            <p>Already have an Account? <a href="#"> Login Now!</a></p>
         </div>
     </div>
+
+    <script>
+        var obj = {};
+        function sendUser(){
+          obj.name = $('#name').val();
+          obj.age = $('#age').val();
+          obj.email = $('#email').val();
+          obj.phone = $('#phone').val();
+          obj.gender = $('#gender').val();
+        }
+
+   function sendUserAjax(){
+    $.ajax({
+    url: 'http://localhost:8080/hackathon/api/user',
+    type: 'POST',
+    data: JSON.stringify(obj),
+    dataType:'json',
+    mode: "cors" ,
+    async: true,
+    contentType: 'application/json',
+    success: successCallback,
+    error: errorCallback
+    });
+   }
+
+    $('button').click(function(){
+        sendUser();
+        sendUserAjax();
+    })
+
+     function successCallback(result){
+        alert("HEHEHHE");
+        redirect();
+    }
+
+    function errorCallback(result){
+        alert("Tou have successfully signed up!");
+        redirect();
+    }
+
+    function redirect(){
+        window.location.replace('./index.html');
+    }
+    </script>
+
+
     <!-- copyright -->
     <div class="colorlibcopy-agile">
         <p>© 2020 Not Just Another Girl. All rights reserved</p>
