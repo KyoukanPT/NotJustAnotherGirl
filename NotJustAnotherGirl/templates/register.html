@@ -67,7 +67,7 @@
     type: 'POST',
     data: JSON.stringify(obj),
     dataType:'text',
-    mode: "cors" ,
+    mode: "cors",
     async: true,
     contentType: 'application/json; charset=utf-8',
     success: successCallback,
@@ -81,18 +81,8 @@
     })
 
      function successCallback(result){
-        alert("You have successfully signed up!");
-        //alert(result.responseText);
-        console.log(
-        result.getResponseHeader;
-        /*
-        for (let i = 0; i < arguments.length; i++){
-            console.log(arguments[i]);
-        } 
-        */
-        localStorage.id = result[0].id;
-        alert(localStorage.id);
-        //redirect();
+        //alert("You have successfully signed up!");
+        redirect();
     }
 
     function errorCallback(result){
