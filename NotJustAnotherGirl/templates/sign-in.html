@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
     <title>Login Form</title>
+=======
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">
+    </script>
+    <title>SignUp Form</title>
+>>>>>>> signup
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -19,8 +26,8 @@
     <div class="main-agileinfo">
         <div class="agileits-top">
             <form action="#" method="post">
-                <input class="text" type="text" name="Email" placeholder="Email" required="">
-                <input class="text" type="text" name="Password" placeholder="Password" required="">
+                <input id="email" class="text" type="text" name="Email" placeholder="Email" required="">
+                <input id="password" class="text" type="text" name="Password" placeholder="Password" required="">
 
 
 
@@ -28,10 +35,57 @@
             <div class="wthree-text">
                 <div class="clear"> </div>
             </div>
-            <input type="submit" value="LOGIN">
+            <button class="btn btn-primary" type="submit">SignIn</button>
             </form>
         </div>
     </div>
+
+    <script>
+    
+        var signin = {};
+        function getUser(){
+            signin.email = $('#email').val();
+        }
+        
+        function getUserAjax(){
+            
+            $.ajax({
+                url: 'http://localhost:8080/hackathon/api/user/signin',
+    data: signin,
+    dataType: 'text',
+    mode: "cors",
+    async: true,
+    success: successCallback,
+    error: errorCallback
+
+    });
+        }
+
+        $('button').click(function(){
+        getUser();
+        getUserAjax();
+    })
+    
+        function successCallback(result){
+           
+            localStorage.id = JSON.parse(result).id;
+            alert(localStorage.id);
+            redirect();
+
+        }
+
+        function errorCallback (result, a, b){
+            console.log('result: ' + result)
+            alert("deumerda");
+            console.log('textStatus: ' + a + ' errorThrown: ' + b);
+            
+        }
+
+        function redirect(){
+        window.location.replace('./index.html');
+    }
+    </script>
+
     <!-- copyright -->
     <div class="colorlibcopy-agile">
         <p>© 2020 Not Just Another Girl. All rights reserved</p>

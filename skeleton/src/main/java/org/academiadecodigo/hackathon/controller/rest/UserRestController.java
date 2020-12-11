@@ -1,11 +1,13 @@
 package org.academiadecodigo.hackathon.controller.rest;
 
+import org.academiadecodigo.hackathon.command.Signin;
 import org.academiadecodigo.hackathon.command.UserDto;
 import org.academiadecodigo.hackathon.converters.ComplaintToComplaintDto;
 import org.academiadecodigo.hackathon.converters.UserDtoToUser;
 import org.academiadecodigo.hackathon.converters.UserToUserDto;
 import org.academiadecodigo.hackathon.persistence.model.Complaint;
 import org.academiadecodigo.hackathon.persistence.model.User;
+import org.academiadecodigo.hackathon.service.mock.AuthService;
 import org.academiadecodigo.hackathon.service.mock.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -29,10 +31,13 @@ public class UserRestController {
     private UserService userService;
     private UserDtoToUser userDtoToUser;
     private UserToUserDto userToUserDto;
-
+    private AuthService authService;
     private ComplaintToComplaintDto complaintToComplaintDto;
 
-
+    @Autowired
+    public void setAuthService(AuthService authService) {
+        this.authService = authService;
+    }
 
     @Autowired
     public void setUserDtoToUser(UserDtoToUser userDtoToUser) {
@@ -78,7 +83,15 @@ public class UserRestController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
+        for(User user : userService.list()){
+            if(user.getEmail().equals(userDto.getEmail())){
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+        }
+
         User savedUser = userService.save(userDto);
+
+
 
         // get help from the framework building the path for the newly created resource
         UriComponents uriComponents = uriComponentsBuilder.path("/api/customer/" + savedUser.getId()).build();
@@ -135,5 +148,15 @@ public class UserRestController {
             userService.delete(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
+    }
+
+    @RequestMapping(method = RequestMethod.GET,path = "/signin")
+    public ResponseEntity<?> login(@Valid Signin signin){
+        System.out.println(signin.getEmail());
+        User user = authService.authenticate(signin);
+        if(user != null){
+            return new ResponseEntity<>(user,HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 }
