@@ -28,7 +28,7 @@
         <div class="agileits-top">
             <form action="#" method="post">
                 <input id="email" class="text" type="text" name="Email" placeholder="Email" required="">
-                <input id="password" class="text" type="text" name="Password" placeholder="Password" required="">
+                <input id="password" class="text" type="password" name="Password" placeholder="Password" required="">
 
 
 
@@ -37,7 +37,7 @@
                 <div class="clear"> </div>
             </div>
             <br>
-            <button class="btn btn-primary" type="submit">Sign In</button>
+            <button class="btn btn-lg btn-primary" type="submit">Sign In</button>
             </form>
         </div>
     </div>
@@ -47,6 +47,7 @@
         var signin = {};
         function getUser(){
             signin.email = $('#email').val();
+            signin.password = $('#password').val();
         }
         
         function getUserAjax(){
@@ -78,10 +79,7 @@
         }
 
         function errorCallback (result, a, b){
-            console.log('result: ' + result)
-            alert("deumerda");
-            console.log('textStatus: ' + a + ' errorThrown: ' + b);
-            
+            console.log("error");
         }
 
         function redirect(){

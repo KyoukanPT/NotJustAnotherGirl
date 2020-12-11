@@ -17,8 +17,22 @@ public class User {
     private String email;
     private String phone;
     private String gender;
+    private String password;
 
     private List<Complaint> complaintList = new LinkedList<>();
+
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setComplaintList(List<Complaint> complaintList) {
+        this.complaintList = complaintList;
+    }
 
     public Integer getId() {
         return id;

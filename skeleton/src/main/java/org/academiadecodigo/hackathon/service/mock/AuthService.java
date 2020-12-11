@@ -18,7 +18,7 @@ public class AuthService {
         String email = signin.getEmail();
 
         for(User user : userService.list()){
-            if(user.getEmail().equals(email)){
+            if(user.getEmail().equals(email) && user.getPassword().equals(signin.getPassword())){
                 return user;
             }
         }

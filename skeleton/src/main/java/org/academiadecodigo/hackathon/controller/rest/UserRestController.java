@@ -32,7 +32,6 @@ public class UserRestController {
     private UserDtoToUser userDtoToUser;
     private UserToUserDto userToUserDto;
     private AuthService authService;
-    private ComplaintToComplaintDto complaintToComplaintDto;
 
     @Autowired
     public void setAuthService(AuthService authService) {
@@ -90,8 +89,6 @@ public class UserRestController {
         }
 
         User savedUser = userService.save(userDto);
-
-
 
         // get help from the framework building the path for the newly created resource
         UriComponents uriComponents = uriComponentsBuilder.path("/api/customer/" + savedUser.getId()).build();

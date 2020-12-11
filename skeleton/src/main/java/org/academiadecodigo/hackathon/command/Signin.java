@@ -3,6 +3,7 @@ package org.academiadecodigo.hackathon.command;
 public class Signin {
 
     private String email;
+
     private String password;
 
     public String getEmail() {
