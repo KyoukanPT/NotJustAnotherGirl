@@ -4,7 +4,6 @@
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">
     </script>
-    <title>SignUp Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -46,9 +45,9 @@
         function getUserAjax(){
             
             $.ajax({
-                url: 'http://localhost:8080/hackathon/api/user/signin',
+    url: 'http://localhost:8080/hackathon/api/user/signin',
     data: signin,
-    dataType: 'text',
+    dataType: 'json',
     mode: "cors",
     async: true,
     success: successCallback,
@@ -64,7 +63,7 @@
     
         function successCallback(result){
            
-            localStorage.id = JSON.parse(result).id;
+            //localStorage.id = JSON.parse(result).id;
             alert(localStorage.id);
             redirect();
 
@@ -78,7 +77,7 @@
         }
 
         function redirect(){
-        window.location.replace('./index.html');
+        window.location.replace('./main_page_login.html');
     }
     </script>
 
@@ -86,19 +85,6 @@
     <div class="colorlibcopy-agile">
         <p>© 2020 Not Just Another Girl. All rights reserved</p>
     </div>
-    <!-- //copyright -->
-    <ul class="colorlib-bubbles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
 </div>
 <!-- //main -->
 </body>
