@@ -1,5 +1,6 @@
 package org.academiadecodigo.hackathon.controller.rest;
 
+import org.academiadecodigo.hackathon.command.Signin;
 import org.academiadecodigo.hackathon.command.UserDto;
 import org.academiadecodigo.hackathon.converters.ComplaintToComplaintDto;
 import org.academiadecodigo.hackathon.converters.UserDtoToUser;
@@ -149,11 +150,13 @@ public class UserRestController {
 
     }
 
-    @RequestMapping(method = RequestMethod.GET,path = "/{email}/login")
-    public ResponseEntity<User> login(@PathVariable String email){
-        if(authService.authenticate(email) != null){
-            return new ResponseEntity<>(authService.authenticate(email), HttpStatus.OK);
+    @RequestMapping(method = RequestMethod.GET,path = "/signin")
+    public ResponseEntity<?> login(@Valid Signin signin){
+        System.out.println(signin.getEmail());
+        User user = authService.authenticate(signin);
+        if(user != null){
+            return new ResponseEntity<>(user,HttpStatus.OK);
         }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 }
