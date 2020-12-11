@@ -30,23 +30,22 @@
         <!-- Nav Bar -->
 
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="">Not Just Another Girl</a>
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo-colorsajusted.png" alt="njag logo">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbartoplist" aria-controls="navbartoplist" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbartoplist">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item text-secondary">
-                        <a class="nav-link text-light" href="blog.html">Blog</a>
+                        <a class="nav-link text-light" href="index.html#testimonials">Partners</a>
                     </li>
                     <li class="nav-item text-secondary">
-                        <a class="nav-link text-light" href="#testimonials">Partners</a>
+                        <a class="nav-link text-light" href="events.html">Events</a>
                     </li>
                     <li class="nav-item text-secondary">
-                        <a class="nav-link text-light" href="#">Events</a>
-                    </li>
-                    <li class="nav-item text-secondary">
-                        <a class="nav-link text-light" href="#contact">Contact</a>
+                        <a class="nav-link text-light" href="index.html#contact">Complaint</a>
                     </li>
                 </ul>
             </div>
@@ -57,8 +56,8 @@
         <div class="row">
             <div class="col-lg-6">
                 <h1 class="h1-title">Rise up! <p class="rights">We have rights.</p></h1>
-                <button type="button" class="btn btn-info btn-lg download-button"><i class="fas fa-fist-raised"></i> Join the movement</button>
-                <button type="button" class="btn btn-outline-light btn-lg download-button"><i class="fas fa-exclamation-triangle"></i> Act now!</button>
+                <a href="#testimonials" class="btn btn-info btn-lg download-button" role="button" aria-disabled="true"><i class="fas fa-thumbs-up"></i> Testimonials</a>
+                <a href="main_page_login.html#contact" class="btn btn-outline-light btn-lg download-button" role="button" aria-disabled="true"><i class="fas fa-exclamation-triangle"></i> Act now!</a>
             </div>
             <div class="col-lg-6">
                 <img src="images/smiling-woman-3.png" class="image-right" alt="smilling-woman">
@@ -157,8 +156,10 @@
             </datalist>
         </div>
         <div class="mb-3">
-            <label class="form-label">Input your message</label>
-            <input type=“textarea” class="form-control" id=“text-input” placeholder="Write your text here"  rows="3" cols="30"></textarea>
+            <label>Your message</label>
+            <br />
+            <textarea name="Your message" rows="8" cols="60"></textarea>
+            <br />
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

@@ -97,6 +97,13 @@ p {
 
 }
 
+.center-submit{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+}
+
 /* Features */
 
 #features {
