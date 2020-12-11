@@ -17,5 +17,4 @@ public class Complaint {
         this.text = text;
     }
 
-
 }
