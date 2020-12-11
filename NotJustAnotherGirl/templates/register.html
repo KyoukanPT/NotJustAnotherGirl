@@ -19,18 +19,18 @@
 <body>
 <!-- main -->
 <div class="main-w3layouts wrapper">
-    <h1>SignUp Form</h1>
+    <h1>Sign Up</h1>
     <div class="main-agileinfo">
         <div class="agileits-top">
             <form action="#" method="post">
 
-                <input class="text" type="text" name="Name" placeholder="Name" required="">
+                <input id ="name" class="text" type="text" name="Name" placeholder="Name" required="">
                 <br>
-                <input class="text" type="text" name="age" placeholder="Age" required="">
-                <input class="text email" type="email" name="email" placeholder="Email" required="">
-                <input class="text" type="text" name="phone" placeholder="Phone" required="">
+                <input id="age" class="text" type="text" name="age" placeholder="Age" required="">
+                <input id="email" class="text email" type="email" name="email" placeholder="Email" required="">
+                <input id="phone" class="text" type="text" name="phone" placeholder="Phone" required="">
                 <br>
-                <input class="text" type="password" name="password" placeholder="Password" required="">
+                <input id="password" class="text" type="password" name="password" placeholder="Password" required="">
 
                 <br>
 
@@ -46,6 +46,7 @@
                 </div>
             <br>
                 <button class="btn btn-primary btn-lg" type="submit" value="SIGNUP">SignUp</button>
+                <a href="index.html"><button class="" id="search" style="background-color:	#DC143C; height: 50px; width: 110px; color: white; border: #008CBA; font-size: 20px; border-radius: 8px;" type="submit">Back</button></a>
             <br>
             <br>
             </form>
@@ -84,13 +85,11 @@
     })
 
      function successCallback(result){
-        //alert("You have successfully signed up!");
         redirect();
     }
 
     function errorCallback(result){
-
-        alert("Please check the fields and try again");  
+        console.log("err")
        
     }
 

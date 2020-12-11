@@ -27,8 +27,8 @@
     <div class="main-agileinfo">
         <div class="agileits-top">
             <form action="#" method="post">
-                <input id="email" class="text" type="text" name="Email" placeholder="Email" required="">
-                <input id="password" class="text" type="password" name="Password" placeholder="Password" required="">
+                <input id="email" class="text" type="text" name="Email" placeholder="Email" required='required'>
+                <input id="password" class="text" type="password" name="Password" placeholder="Password" required='required'>
 
 
 
@@ -37,7 +37,8 @@
                 <div class="clear"> </div>
             </div>
             <br>
-            <button class="" id="search" style="background-color: #0A60FC; height: 40px; width: 100px; color: white; border: #008CBA" type="submit">Sign In</button>
+            <button class="" id="search" style="background-color: #0A60FC; height: 40px; width: 100px; color: white; border: #008CBA; font-size: 18px; border-radius: 8px;" type="submit">Sign In</button>
+            <a href="index.html"><button class="" id="search" style="background-color:	#DC143C; height: 40px; width: 100px; color: white; border: #008CBA; font-size: 18px; border-radius: 8px;" type="submit">Back</button></a>
             </form>
         </div>
     </div>
@@ -55,7 +56,7 @@
             $.ajax({
     url: 'http://localhost:8080/hackathon/api/user/signin',
     data: signin,
-    dataType: 'json',
+    dataType:'json',
     mode: "cors",
     async: true,
     contentType: 'application/json; charset=utf-8',
@@ -66,16 +67,14 @@
         }
 
         $('button').click(function(){
-        getUser();
-        getUserAjax();
+            if(signin.email.trim() != "" || signin.password.trim() != ""){
+                getUser();
+                getUserAjax();
+            }
     })
     
         function successCallback(result){
-           
-            //localStorage.id = JSON.parse(result).id;
-            alert(localStorage.id);
             redirect();
-
         }
 
         function errorCallback (result, a, b){
