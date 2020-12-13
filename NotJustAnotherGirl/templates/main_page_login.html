@@ -176,7 +176,7 @@
 
     function ajaxSend(){
     $.ajax({
-    url: 'http://localhost:8080/hackathon/api/user/addComplaint',
+    url: 'http://192.168.1.113:8080/hackathon/api/user/addComplaint',
     type: 'POST',
     data: JSON.stringify(complaint),
     dataType:'text',
@@ -195,7 +195,7 @@
     }
 
     function errorCallback (result){
-    console.log("error");
+    console.log(result);
     }
 
     $('button').click(function(){
