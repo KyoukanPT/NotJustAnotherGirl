@@ -128,11 +128,7 @@ public class UserRestController {
     }
 
     @RequestMapping(method = RequestMethod.POST, path = "/addComplaint")
-    public ResponseEntity<Complaint> addComplaint(@Valid @RequestBody Complaint complaint, BindingResult bindingResult){
-
-        if (bindingResult.hasErrors()) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+    public ResponseEntity<Complaint> addComplaint(@RequestBody Complaint complaint){
 
         userService.get(complaint.getUserId()).addComplaint(complaint);
 

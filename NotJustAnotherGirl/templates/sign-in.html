@@ -54,7 +54,7 @@
         function getUserAjax(){
             
             $.ajax({
-    url: 'http://localhost:8080/hackathon/api/user/signin',
+    url: 'http://192.168.1.113:8080/hackathon/api/user/signin',
     data: signin,
     dataType:'json',
     mode: "cors",
@@ -67,13 +67,16 @@
         }
 
         $('button').click(function(){
+            getUser();
+                
             if(signin.email.trim() != "" || signin.password.trim() != ""){
-                getUser();
                 getUserAjax();
             }
     })
     
         function successCallback(result){
+            alert(JSON.stringify(result));
+            localStorage.id = result.id;
             redirect();
         }
 
