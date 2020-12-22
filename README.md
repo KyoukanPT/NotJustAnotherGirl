@@ -1,6 +1,6 @@
 This project was made within the scope of <Academia de Código_>'s 2020 Hackathon Bitjs Edition.
 
-It was build by the team GigaLoads composed by Tiago "Francês" Silva, Nuno Rodrigues, Willian "Will Will" Silva, Pedro "Puto" Cabral and Fábio "Jhost" Cardoso.
+It was built by the team GigaLoads composed by Tiago "Francês" Silva, Nuno Rodrigues, Willian "Will Will" Silva, Pedro "Puto" Cabral and Fábio "Jhost" Cardoso.
 
 The theme of the project is about the protests during the covid pandemic. 
 
@@ -12,3 +12,6 @@ With our app you can create an account, make a complaint and in the future you w
 
 
 <Academia de Código_>'s 2020 Hackathon Bitjs Edition - WINNERS
+
+
+You can check our website by clicking on this link - https://bit.ly/38d1MXB
