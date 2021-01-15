@@ -16,7 +16,7 @@ This application is a web app, with a RESTfull backend ready to be implemented b
 
 With our app you can create an account, make a complaint and in the future you will have a user profile where you can see your complaints, check the number of complaints per location, and more.
 
-<Academia de Código_>'s 2020 Hackathon Bitjs Edition - WINNERS
+<strong><Academia de Código_>'s 2020 Hackathon Bitjs Edition - WINNERS</strong>
 
 You can check our website by clicking on this link - https://bit.ly/38d1MXB
 
