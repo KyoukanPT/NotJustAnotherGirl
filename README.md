@@ -18,5 +18,4 @@ With our app you can create an account, make a complaint and in the future you w
 
 <strong><Academia de Código_>'s 2020 Hackathon Bitjs Edition - WINNERS</strong>
 
-You can check our website by clicking on this link - https://bit.ly/38d1MXB
-
+You can check our website by clicking on this link >>> https://bit.ly/38d1MXB
